@@ -21,7 +21,7 @@ func main() {
 
 	<-bastao
 
-	fmt.Printf("Fim de corrida")
+	fmt.Printf("Fim de corrida\n")
 }
 
 func corredor(bastao chan int, numero int) {
