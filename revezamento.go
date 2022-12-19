@@ -25,17 +25,15 @@ func main() {
 }
 
 func corredor(bastao chan int, numero int) {
-	for {
-		<-bastao
-		fmt.Printf("Corredor %d começou a correr\n", numero)
-		time.Sleep(time.Second * 3)
-		fmt.Printf("Corredor %d concluiu a corrida\n", numero)
-
-		bastao <- 1
-
-		if numero == 4 {
-			close(bastao)
-			return
-		}
+	
+	<-bastao
+	fmt.Printf("Corredor %d começou a correr\n", numero)
+	time.Sleep(time.Second * 3)
+	fmt.Printf("Corredor %d concluiu a corrida\n", numero)
+	bastao <- 1
+	if numero == 4 {
+		close(bastao)
+		return
 	}
+			
 }
